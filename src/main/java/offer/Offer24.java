@@ -23,40 +23,33 @@ public class Offer24 {
             return null;
         }
 
-        //2.创建起止节点
-        ListNode pre = head;
-        ListNode end = head;
-
-        //3.遍历链表,让头结点指向链表最末节点
+        //2.遍历链表,让反转后的链表头结点指向链表最末节点
         ListNode node = head;
         while (null != node.next) {
             node = node.next;
         }
-
-        //4.头结点指向链表最末节点
         ListNode rHead = node;
 
-        //5.递归，开始反转链表
-        reverseList(head, pre, end);
+        //3.递归，开始反转链表
+        reverseListRecursion(head);
 
-        //6.返回
+        //4.返回
         return rHead;
     }
 
-    public static void reverseList(ListNode node, ListNode pre, ListNode end) {
+    public static ListNode reverseListRecursion(ListNode node) {
 
         //1.递归结束逻辑
         if (null == node.next) {
-            return;
+            return node;
         }
 
         //2.递归逻辑
-        pre = node;
-        end = node.next;
-        reverseList(node.next, pre, end);
+        ListNode reverseNode = reverseListRecursion(node.next);
 
         //3.回溯逻辑
-        end.next = pre;
-        pre.next = null;
+        reverseNode.next = node;
+        node.next = null;
+        return node;
     }
 }
