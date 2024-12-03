@@ -1,11 +1,11 @@
-package list;
+package list.algorithm;
 
-import list.algorithm.ReverseList;
+import cn.hutool.core.lang.Assert;
 import list.entity.ListNode;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class ReverseListTest {
+class IsPalindromeTest {
 
     private ListNode head;
     private ListNode tail;
@@ -24,8 +24,8 @@ class ReverseListTest {
     }
 
     @Test
-    void reverseList() {
-        ListNode listNode = ReverseList.reverseList(head);
-
+    void isPalindrome() {
+        boolean palindrome = IsPalindrome.isPalindrome(head);
+        Assert.isFalse(palindrome);
     }
 }
