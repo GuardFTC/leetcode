@@ -18,46 +18,13 @@ public class DeleteNode {
      */
     public ListNode deleteNode(ListNode head, int val) {
 
-        //1.头节点为空，直接返回
-        if (head == null) {
-            return null;
-        }
-
-        //2.如果只有头节点，且与待删除节点值一致
-        if (head.val == val && head.next == null) {
-            return null;
-        } else if (head.val == val) {
-            return head.next;
-        } else if (head.next == null) {
-            return head;
-        }
-
-        //3.递归寻找目标节点
-        recursion(head, val);
-
-        //4.返回头节点
-        return head;
-    }
-
-    /**
-     * 递归查找目标节点并删除
-     *
-     * @param node 链表节点
-     * @param val  待删除节点值
-     * @return 后置节点
-     */
-    public ListNode recursion(ListNode node, int val) {
-
         //1.递归结束条件，找到目标节点，返回其后置节点
-        if (node.val == val) {
-            return node.next;
+        if (head.val == val) {
+            return head.next;
         }
 
-        //2.递归
-        ListNode nextNode = recursion(node.next, val);
-
-        //3.删除节点
-        node.next = nextNode;
-        return node;
+        //2.递归删除节点
+        head.next = deleteNode(head.next, val);
+        return head;
     }
 }
