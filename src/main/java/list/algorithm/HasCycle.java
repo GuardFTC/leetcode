@@ -29,19 +29,20 @@ public class HasCycle {
         //3.循环链表
         while (fast != null) {
 
-            //4.快指针后移
-            fast = fast.next;
+            //4.慢指针后移
+            slow = slow.next;
 
-            //5.如果快慢指针一致，代表出现环，返回
+            //5.快指针后移
+            if (fast.next != null) {
+                fast = fast.next.next;
+            } else {
+                return false;
+            }
+
+            //6.如果快慢指针一致，代表出现环，返回
             if (fast == slow) {
                 return true;
             }
-
-            //6.快慢指针同时后移
-            if (null != fast) {
-                fast = fast.next;
-            }
-            slow = slow.next;
         }
 
         //7.返回false
