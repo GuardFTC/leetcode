@@ -20,7 +20,7 @@ import list.entity.ListNode;
  * 4.xn+kn-xn+k-x = length
  * 5.kn+k-x = length
  * 6.x = kn+k-length
- * 7.y = k-x
+ * y = k-x
  */
 public class SplitListToParts {
 
